@@ -30,24 +30,13 @@ public class UserController {
     @PostMapping("/users")
     public ResponseEntity<String> createUser(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email, @RequestParam String password) {
         UserDTO userDTO = new UserDTO(firstName, lastName, email, password);
-        User createdUserForRegister = userService.createUser(userDTO);
-        if (createdUserForRegister != null) {
-            return ResponseEntity.ok("User Created Successfully!");
+        try {
+            if (userService.createUser(userDTO) != null) {
+                return ResponseEntity.ok("User Created Successfully!");
+            }
+        } catch (Exception e) {
+            System.out.println(e);
         }
         return ResponseEntity.ok("User e-mail already exist!");
     }
-
-    // @PostMapping("/users")
-    // public ResponseEntity<String> createUser(@RequestBody UserDTO userDTO) {
-    //     userService.createUser(userDTO);
-    //     return ResponseEntity.ok("User created successfully!");
-    // }
-
-    // @GetMapping("/users/{id}")
-    // public ResponseEntity<UserDTO> getUserById(@PathVariable Long id) {
-    //     User user = userService.getUserById(id);
-    //     UserDTO userDTO = new UserDTO(user.getFirstName(), user.getLastName(), user.getEmail(), user.getPassword());
-    //     return ResponseEntity.ok(userDTO);
-    // }
-
 }
