@@ -11,6 +11,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "users")
+@Lazy
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

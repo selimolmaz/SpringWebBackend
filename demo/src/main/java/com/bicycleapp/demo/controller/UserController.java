@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bicycleapp.demo.dto.UserDTO;
+import com.bicycleapp.demo.model.User;
 import com.bicycleapp.demo.service.UserService;
 
 @Controller
@@ -28,13 +29,12 @@ public class UserController {
     }
     @PostMapping("/users")
     public ResponseEntity<String> createUser(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email, @RequestParam String password) {
-        UserDTO userDTO = new UserDTO();
-        userDTO.setFirstName(firstName);
-        userDTO.setLastName(lastName);
-        userDTO.setEmail(email);
-        userDTO.setPassword(password);
-        userService.createUser(userDTO);
-        return ResponseEntity.ok("User created successfully!");
+        UserDTO userDTO = new UserDTO(firstName, lastName, email, password);
+        User createdUserForRegister = userService.createUser(userDTO);
+        if (createdUserForRegister != null) {
+            return ResponseEntity.ok("User Created Successfully!");
+        }
+        return ResponseEntity.ok("User e-mail already exist!");
     }
 
     // @PostMapping("/users")

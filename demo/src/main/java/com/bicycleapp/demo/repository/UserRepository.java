@@ -12,7 +12,8 @@ import com.bicycleapp.demo.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-
+    User findByEmailAndPassword(String email, String password);
+    User findByEmail(String email);
 }
 /*
  * CRUD, Create (Oluşturma), Read (Okuma), Update (Güncelleme) ve Delete (Silme)
