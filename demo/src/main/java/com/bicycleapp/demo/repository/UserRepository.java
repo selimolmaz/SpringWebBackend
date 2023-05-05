@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import com.bicycleapp.demo.model.User;
 
 
-/*
+/**
  * UserRepository sınıfını oluşturduk: JPARepository sınıfını genişleten bir arayüz. 
  * Bu, veritabanı işlemlerini gerçekleştirmek için kullanacağımız CRUD işlevlerini içeriyor.
  */

@@ -20,20 +20,24 @@ public class UserLoginController {
     @Autowired
     private UserService userService;
 
+    // Giriş sayfasını gösteren GET isteğini karşılayan metod
     @GetMapping
     public String getLoginPage(Model model) {
         model.addAttribute("userDTO", new UserDTO());
         return "login-page";
     }
 
+    // Kullanıcının giriş yapması için kullanılan POST isteğini karşılayan metod
     @PostMapping
     public ResponseEntity<String> checkUserForSignin(@RequestParam String email, @RequestParam String password) {
         boolean controllerFlag;
         UserDTO userDTO = new UserDTO(email, password);
+        // Kullanıcının kimlik bilgileri doğruysa, true değeri döner
         controllerFlag = userService.authenticate(userDTO.getEmail(), userDTO.getPassword());
         if (controllerFlag) {
             return ResponseEntity.ok("User Signin Successfully!");
         }
+        // Kullanıcının kimlik bilgileri yanlışsa, false değeri döner
         return ResponseEntity.ok("User e-mail or password is not correct!");
     }
 }

@@ -9,6 +9,29 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+/**
+ * Tablo olarak tasarlanmış bir veritabanı tablosunu temsil etmek için
+ * kullanılan bir Java sınıfıdır. "users" adlı bir veritabanı tablosunu temsil
+ * eder. @Entity, bu sınıfın bir JPA varlığı olduğunu belirtir. @Table, varlığın
+ * karşılık geldiği veritabanı tablosunun adını belirtir.
+ * 
+ * Sınıfın özellikleri tabloda bulunan sütunlara karşılık gelir. Örneğin,
+ * "first_name" adlı bir sütun, "firstName" özelliği ile eşleştirilir. Aynı
+ * şekilde, "email" adlı bir sütun, "email" özelliği ile eşleştirilir. @Id, bu
+ * sınıfın birincil anahtarının "id" özelliğinin değerine göre oluşturulacağını
+ * belirtir. @GeneratedValue, birincil anahtarın otomatik olarak
+ * oluşturulacağını belirtir.
+ * 
+ * @Lazy, bu sınıfın yalnızca ihtiyaç duyulduğunda yüklenmesi gerektiğini
+ * belirtir. Bu, sınıfın özelliklerine erişildiğinde yalnızca o zaman yüklenir.
+ * Bu, uygulamanın performansını artırabilir.
+ * 
+ * Sınıfın kurucu metodları, özelliklerin değerlerini ayarlamak için kullanılır.
+ * Sınıfın diğer özelliklerine erişmek için get ve set metotları vardır.
+ * 
+ * Bu sınıf, bir veritabanı tablosunu temsil etmek için kullanılan ve
+ * özelliklerin sütunlara karşılık geldiği bir JPA varlığıdır.
+ */
 @Entity
 @Table(name = "users")
 @Lazy

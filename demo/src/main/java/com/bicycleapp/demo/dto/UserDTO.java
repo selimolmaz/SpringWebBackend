@@ -2,10 +2,13 @@ package com.bicycleapp.demo.dto;
 
 import com.bicycleapp.demo.model.User;
 
-//UserDTO sınıfını oluşturduk: 
-//Kullanıcının adı, soyadı, e-posta ve şifre bilgilerini içeren bir veri transfer nesnesi.
+/**
+ * Bu sınıf, bir kullanıcının adını, soyadını, e-posta adresini ve şifresini içeren bir veri transfer nesnesidir.
+ * Ayrıca, UserDTO nesnesini User sınıfına dönüştürmek için toUser() metodu sağlanır.
+ */
 public class UserDTO {
-
+    //UserDTO sınıfını oluşturduk: 
+    //Kullanıcının adı, soyadı, e-posta ve şifre bilgilerini içeren bir veri transfer nesnesi.
     private String firstName;
     private String lastName;
     private String email;
