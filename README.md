@@ -11,9 +11,12 @@ Gereksinimler
 
 Bu projenin çalışması için aşağıdaki gereksinimlere ihtiyaç duyulmaktadır:
 
-Java JDK
-Spring Framework
-Spring Security 
+Java JDK,
+
+Spring Framework, 
+
+Spring Security, 
+
 MySql
 
 Proje Kurulumu
